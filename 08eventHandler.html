@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handler </title>
+</head>
+<body>
+<h1 class="title">Five Reasons Not to Go to School</h1>
+<figure>
+    <img src="images/smiley.png" alt="smiley" height="100">
+</figure>
+<ol>
+    <li>Children sent to school are away from home more then …</li>
+    <li>Compassion and kindness are not taught in schools.</li>
+    <li>Schools harbor drugs, violence, rape, sexism, …</li>
+    <li>Learning does not occur in schools.</li>
+    <li>Many important subjects are not taught in schools.</li>
+</ol>
+</body>
+
+    <script>
+        document.querySelector("figure img").addEventListener("click", changeImage, false);
+        function changeImage() {
+            let image = document.querySelector("[alt=smiley]");
+            image.src = "images/smileySad.png";
+            image.height = 200;}
+
+        document.getElementsByTagName("ol")[0].addEventListener("click",changeFirstLi, false);
+        function changeFirstLi() {
+            let oList = document.getElementByTagName("ol");
+            console.log(oList); // check element and properties in console
+            oList[0].firstElementChild.id = "special";
+            oList[0].lastElementChild.innerHTML = "All this is nonsense";
+            oList[0].lastElementChild.setAttribute("style","font-weight: bold");    }
+
+    </script>
+
+
+</html>

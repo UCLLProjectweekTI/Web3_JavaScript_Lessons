@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate your BMI</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        form p #submit, form p #clear {
+            grid-column-start: 2;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <h1>Calculate your BMI</h1>
+    <form id="form" action="#">
+        <!-- Remark on action attribute: # prevents reload of the page and just instead tries
+            to jump to the element with the id in the fragment identifier.
+            But, since it's empty, it won't jump anywhere. -->
+        <p><label for="height">Your height in cm: </label><input type="number" id="height">
+        </p>
+        <p>
+            <label for="weight">Your weight in kg:</label> <input type="number" id="weight">
+        </p>
+        <p>
+            <input type="submit" value="Calculate my BMI" id="submit">
+        </p>
+        <p>
+           <a href="#" id="clear">Clear form</a>
+        </p>
+    </form>
+    <p id="result"></p>
+
+</div>
+
+<script>
+    /**
+     * Calculates the BMI according to the formula weight/(height*height)
+     * @param height in cm
+     * @param weight in kg
+     */
+    function calculateBMI(height, weight) {
+        return Math.round(weight / (height * height) * 10000);
+    }
+
+    /**
+     * Generates the response of this form as a string
+     */
+    function generateResultingString() {
+        let height = document.getElementById("height").value;
+        let weight = document.getElementById("weight").value;
+        if (height > 0 && weight > 0)
+            return "Your BMI is equal to " + calculateBMI(height, weight) + ".";
+        else
+            return "Fill out both fields."
+    }
+
+    /**
+     * Adds text node to empty paragraph with id "result"
+     */
+    function showBMI() {
+        document.getElementById("result").innerText = generateResultingString();
+    }
+
+    /**
+     * Actual event for calculating BMI when clicking on submit button
+     */
+    document.getElementById("submit").addEventListener("click", showBMI);
+
+
+    /**
+     * Removes all values of form elements and text in resulting paragraph
+     */
+    function clearForm() {
+        document.getElementById("height").value = "";
+        document.getElementById("weight").value = "";
+        document.getElementById("result").innerText="";
+    }
+
+    /**
+     * Actual event for clearing the form
+     */
+    document.getElementById("clear").addEventListener("click", clearForm);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+	background-color: #000;
+	color: #000;
+	font-size: 1em;
+	font-family: droid-sans, sans-serif;
+}
+
+p {
+    margin: 1.5em 0.5em;
+    padding: 1em;
+    line-height: 1.5em;
+}
+
+div#container {
+	width: 90%;
+	margin: 10px auto;
+	background-color: #e6e6e6;
+	padding: 10px;
+    overflow: auto;
+}
+
+
+div#container form {
+    margin: auto;
+    overflow: auto;
+}
+
+div#container form p {
+    display: grid;
+    grid-template-columns: 30% 30%;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    justify-items: end;
+}
+
+input {
+	font-size: inherit;
+	width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form p {
+    clear: both;
+    margin: 0;
+    overflow: auto;
+    line-height: 2em;
+}
+
+form p a {
+    text-decoration: none;
+}
+
+button {
+	width: 20em;
+	height: 40px;
+	background-color: #ffcfb8;
+    float: right;
+}
+
+
+#error, .error {
+    border: 1px solid #ff4db8;
+    background-color: #ffeef3;
+}
+
+span.error {
+    display: block;
+}
