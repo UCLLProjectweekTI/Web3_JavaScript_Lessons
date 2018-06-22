@@ -33,7 +33,7 @@ div#container form p {
     justify-items: end;
 }
 
-input {
+input, textarea {
 	font-size: inherit;
 	width: 100%;
     -webkit-box-sizing: border-box;
@@ -58,13 +58,9 @@ button {
 	background-color: #ffcfb8;
     float: right;
 }
-
-
-#error, .error {
-    border: 1px solid #ff4db8;
-    background-color: #ffeef3;
+input[type="submit"],button {
+    grid-column-start: 2;
+    width: 100%;
 }
 
-span.error {
-    display: block;
-}
+

@@ -23,7 +23,7 @@
             <label for="weight">Your weight in kg:</label> <input type="number" id="weight">
         </p>
         <p>
-            <input type="submit" value="Calculate my BMI" id="submit">
+            <button type="button" id="submit">Calculate my BMI</button>
         </p>
         <p>
            <a href="#" id="clear">Clear form</a>
@@ -34,6 +34,11 @@
 </div>
 
 <script>
+    window.addEventListener("load",function() {
+        document.getElementById("submit").addEventListener("click", showBMI);
+        document.getElementById("clear").addEventListener("click", clearForm);
+    }, false);
+
     /**
      * Calculates the BMI according to the formula weight/(height*height)
      * @param height in cm
@@ -63,25 +68,23 @@
     }
 
     /**
-     * Actual event for calculating BMI when clicking on submit button
-     */
-    document.getElementById("submit").addEventListener("click", showBMI);
-
-
-    /**
      * Removes all values of form elements and text in resulting paragraph
      */
     function clearForm() {
+
+
         document.getElementById("height").value = "";
         document.getElementById("weight").value = "";
         document.getElementById("result").innerText="";
     }
-
     /**
      * Actual event for clearing the form
      */
-    document.getElementById("clear").addEventListener("click", clearForm);
 
+
+    /**
+     * Actual event for calculating BMI when clicking on submit button
+     */
 </script>
 </body>
 </html>
