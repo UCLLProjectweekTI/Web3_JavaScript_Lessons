@@ -14,9 +14,6 @@
 <div id="container">
     <h1>Calculate your BMI</h1>
     <form id="form" action="#">
-        <!-- Remark on action attribute: # prevents reload of the page and just instead tries
-            to jump to the element with the id in the fragment identifier.
-            But, since it's empty, it won't jump anywhere. -->
         <p><label for="height">Your height in cm: </label><input type="number" id="height">
         </p>
         <p>
@@ -24,6 +21,7 @@
         </p>
         <p>
             <button type="button" id="submit">Calculate my BMI</button>
+            <!-- Use attribute type="button" to prevent form of being submitted -->
         </p>
         <p>
            <a href="#" id="clear">Clear form</a>
@@ -34,10 +32,18 @@
 </div>
 
 <script>
-    window.addEventListener("load",function() {
+    // Load all events when page is loaded
+    window.addEventListener("load",initPage, false);
+
+    /**
+     * Initializes events of page when loading
+     */
+    function initPage() {
+        //Show BMI when clicking button with id "submit"
         document.getElementById("submit").addEventListener("click", showBMI);
+        // Clear form when clicking button with id "clear"
         document.getElementById("clear").addEventListener("click", clearForm);
-    }, false);
+    }
 
     /**
      * Calculates the BMI according to the formula weight/(height*height)
@@ -63,7 +69,7 @@
     /**
      * Adds text node to empty paragraph with id "result"
      */
-    function showBMI() {
+    function showBMI(event) {
         document.getElementById("result").innerText = generateResultingString();
     }
 
@@ -71,20 +77,10 @@
      * Removes all values of form elements and text in resulting paragraph
      */
     function clearForm() {
-
-
         document.getElementById("height").value = "";
         document.getElementById("weight").value = "";
         document.getElementById("result").innerText="";
     }
-    /**
-     * Actual event for clearing the form
-     */
-
-
-    /**
-     * Actual event for calculating BMI when clicking on submit button
-     */
-</script>
+ </script>
 </body>
 </html>

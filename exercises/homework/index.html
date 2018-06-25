@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registering Homework</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<div id="container">
+    <form action="#">
+        <p>
+            <label for="groupName">Name of your group</label>
+            <input type="text" id="groupName" name = "groupName" required>
+        </p>
+        <p>
+            <label for="alone">Were you working alone?</label>
+            <input type="checkbox" id="alone">
+        </p>
+        <p id="for-name">
+            <label for="name">Your name</label>
+            <input type="text" id="name">
+        </p>
+        <p>
+            <label for="start">Starting hour (hh:mm)</label>
+            <input type="time" id="start"  required>
+            <label for="end">Ending hour (hh:mm)</label>
+            <input type="time" id="end"  required>
+        </p>
+        <p>
+            <input type="submit" id="submit" value="Register my time">
+        </p>
+    </form>
+
+</div>
+
+<script>
+
+    function showNameField() {
+        if (this.checked) {
+            document.getElementById("for-name").style.visibility = "visible";
+        }
+        else {
+            document.getElementById("for-name").style.visibility = "hidden";
+        }
+    }
+
+    // Show only name field if checkbox "alone" is checked
+    function handleCheckbox() {
+        showNameField();
+        document.getElementById("alone").addEventListener("change",showNameField,false);
+    }
+
+    window.addEventListener("load",function() {
+        handleCheckbox();
+    }, false);
+
+</script>
+</body>
+</html>
